@@ -6,18 +6,23 @@ const TodoApp = () => {
   const [todos, setTodos] = useState([]);
 
   const addTodoHandler = (input) => {
-    // console.log(input)
     const newTodo = {
       id: Math.floor(Math.random() * 1000),
       text: input,
       isCompleted: false,
     };
+    console.log(input)
     setTodos([...todos, newTodo])
   };
+
+  const completeTodo = (id) => {
+console.log(id)
+  }
+
   return (
     <div className="container">
       <TodoForm addTodoHandler={addTodoHandler} />
-      <TodoList />
+      <TodoList todos={todos} onComplete={completeTodo} />
     </div>
   );
 };

@@ -4,7 +4,7 @@ const TodoForm = ({addTodoHandler}) => {
   const [input, setInput] = useState("");
 
   const changeHandler = (e) => {
-      console.log(e.target.value)
+      // console.log(e.target.value)
       setInput(e.target.value);
   };
 

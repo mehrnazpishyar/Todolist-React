@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Todo = ({todo,onComplete}) => {
+const Todo = ({todo,onComplete,onDelete}) => {
   return (
     <div>
           <div className='todo'>
-          <div className={todo.isCompleted ? "completed" : ""}>{todo.text}</div>
+          <div onClick={onComplete} className={todo.isCompleted ? "completed" : ""}>{todo.text}</div>
           <div>
             <button>Edit</button>
-            <button onClick={onComplete}>Complete</button>
+            <button onClick={onDelete} >Delete</button>
           </div>
         </div>
     </div>

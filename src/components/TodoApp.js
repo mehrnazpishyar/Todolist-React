@@ -16,19 +16,25 @@ const TodoApp = () => {
   };
 
   const completeTodo = (id) => {
-    const index = todos.findIndex((todo)=> todo.id === id)
-    const selectedTodo = {...todos[index]}
-    selectedTodo.isCompleted = !selectedTodo.isCompleted
+    const index = todos.findIndex((todo) => todo.id === id);
+    const selectedTodo = { ...todos[index] };
+    selectedTodo.isCompleted = !selectedTodo.isCompleted;
     console.log(selectedTodo);
-    const updatedTodos = [...todos]
-    updatedTodos[index] = selectedTodo
-    setTodos(updatedTodos)
+    const updatedTodos = [...todos];
+    updatedTodos[index] = selectedTodo;
+    setTodos(updatedTodos);
+  };
+
+  const removeTodo = (id) => {
+    console.log(id);
+   const filteredTodos =  todos.filter((t)=>t.id !== id)
+   setTodos(filteredTodos)
   };
 
   return (
     <div className="container">
       <TodoForm addTodoHandler={addTodoHandler} />
-      <TodoList todos={todos} onComplete={completeTodo} />
+      <TodoList todos={todos} onComplete={completeTodo} onDelete={removeTodo} />
     </div>
   );
 };

@@ -27,14 +27,29 @@ const TodoApp = () => {
 
   const removeTodo = (id) => {
     console.log(id);
-   const filteredTodos =  todos.filter((t)=>t.id !== id)
-   setTodos(filteredTodos)
+    const filteredTodos = todos.filter((t) => t.id !== id);
+    setTodos(filteredTodos);
+  };
+
+  const updateTodo = (id, newValue) => {
+    const index = todos.findIndex((todo) => todo.id === id);
+    const selectedTodo = { ...todos[index] };
+    selectedTodo.text = newValue;
+    console.log(selectedTodo);
+    const updatedTodos = [...todos];
+    updatedTodos[index] = selectedTodo;
+    setTodos(updatedTodos);
   };
 
   return (
     <div className="container">
-      <TodoForm addTodoHandler={addTodoHandler} />
-      <TodoList todos={todos} onComplete={completeTodo} onDelete={removeTodo} />
+      <TodoForm submitTodo={addTodoHandler} />
+      <TodoList
+        todos={todos}
+        onComplete={completeTodo}
+        onDelete={removeTodo}
+        onUpdateTodo={updateTodo}
+      />
     </div>
   );
 };

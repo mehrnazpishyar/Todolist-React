@@ -19,7 +19,7 @@
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 4px;
+  padding: 20px;
 }
 
 .todo {
@@ -57,7 +57,7 @@ input:focus {
   align-items: center;
   justify-content: space-between;
   width: 20rem;
-  margin-bottom: 20px;
+  margin: 30px 0;
 }
 
 .button {
@@ -88,11 +88,12 @@ input:focus {
 header {
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+
 }
 
 header span {
-  margin-right: 20px;
+  margin-right: 10px;
   display: inline-block;
   width: 20px;
   font-size: 14px;
@@ -103,4 +104,8 @@ header span {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+header h2 {
+  margin-right: 20px;
 }

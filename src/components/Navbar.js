@@ -1,16 +1,18 @@
 import React from "react";
+import Select from 'react-select';
 
-const Navbar = ({ uncompletedTodo }) => {
+const options = [
+  { value: 'All', label: 'All' },
+  { value: 'Completed', label: 'Completed' },
+  { value: 'Uncompleted', label: 'Uncompleted' },
+];
+
+const Navbar = ({ uncompletedTodo,onChange,selectedOption }) => {
+  if (!uncompletedTodo) return <h2>set your today todos!</h2>;
   return (
     <header>
-      {uncompletedTodo ? (
-        <>
-          <span>{uncompletedTodo}</span>
-          <h2>are not completed</h2>
-        </>
-      ) : (
-        <h2>set your today todos!</h2>
-      )}
+      <span>{uncompletedTodo}</span><h2>not completed</h2>
+      <Select onChange={onChange} value={selectedOption} options={options}/>
     </header>
   );
 };
